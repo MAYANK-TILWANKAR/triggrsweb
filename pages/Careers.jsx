@@ -39,7 +39,7 @@ const Careers = () => {
       <div className="flex-grow py-20 px-4">
         <div className="max-w-7xl mx-auto pt-12">
           <div className="text-center ">
-            <span className="text-gray-400 text-sm font-medium border border-neutral-600/50 rounded-full px-4 py-2 inline-block mb-4">
+            <span className="text-gray-400 text-sm font-medium border border-neutral-600/50 rounded-full px-4 py-2 inline-block mb-4 mr-[650px]">
               We&apos;re Hiring
             </span>
             <h1 className="text-4xl sm:text-5xl mr-80 font-semibold text-white mb-6 tracking-tight">
