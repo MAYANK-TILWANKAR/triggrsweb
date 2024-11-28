@@ -113,7 +113,7 @@ const Technologies = () => {
   ];
 
   return (
-    <section className="bg-neutral-900 py-16 md:py-24 lg:py-32 lg:px-24">
+    <section className="bg-neutral-900 py-16 md:py-24 lg:py-32 lg:px-24 px-6">
       <div className="max-w-7xl mx-auto ">
         <div ref={headerRef} className="text-left mb-12">
           <h2 className="text-2xl sm:text-3xl md:text-3xl font-bold text-white mb-4 uppercase">

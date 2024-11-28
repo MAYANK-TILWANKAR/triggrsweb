@@ -1,6 +1,6 @@
 "use client";
 import WorldMap from "./ui/world-map";
-import { motion } from "motion/react";
+
 import { FlipWords } from "./ui/flip-words";
 
 export default function Home2() {
@@ -11,9 +11,9 @@ export default function Home2() {
   ];
 
   return (
-    <div className="pt-36 w-full bg-black overflow-hidden">
+    <div className="pt-52 sm:pt-32 w-full bg-black overflow-hidden">
       <div className="mt-10 max-w-7xl mx-auto relative z-10 w-full mb-20">
-        <h1 className="text-4xl md:text-5xl font-bold text-center bg-clip-text">
+        <h1 className="text-4xl md:text-4xl font-bold text-center bg-clip-text">
           <FlipWords
             words={words}
             duration={4000}

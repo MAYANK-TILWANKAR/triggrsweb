@@ -141,6 +141,14 @@ const Navbar = () => {
                 className="text-gray-100 flex items-center text-[14px] xl:text-[14px] hover:text-blue-600 relative after:absolute after:bottom-[-15px] after:left-0 after:h-[4px] after:w-0 after:bg-blue-600 after:transition-all after:duration-300 hover:after:w-full">
                 Home
               </Link>
+
+              {/* Navigation Links with responsive text sizes */}
+
+              <Link
+                href="/Products"
+                className="text-gray-100 flex items-center text-[14px] xl:text-[14px] hover:text-blue-600 relative after:absolute after:bottom-[-15px] after:left-0 after:h-[4px] after:w-0 after:bg-blue-600 after:transition-all after:duration-300 hover:after:w-full">
+                Our Products
+              </Link>
               <div
                 className="relative group"
                 onMouseEnter={handleMouseEnter}
@@ -200,12 +208,12 @@ const Navbar = () => {
                           width={100}
                           height={100}
                         />
-                        <div className="mt-5">
+                        <div className="">
                           <span className="block text-white text-sm sm:text-sm font-medium">
                             Ecommerce Development
                           </span>
                           <span className="text-xs sm:text-sm text-neutral-400">
-                            Custom online stores & marketplaces
+                            Custom online stores
                           </span>
                         </div>
                       </Link>
@@ -220,7 +228,7 @@ const Navbar = () => {
                           width={100}
                           height={100}
                         />
-                        <div className="mb-1">
+                        <div>
                           <span className="block text-white text-sm sm:text-sm font-medium">
                             API Development
                           </span>
@@ -236,7 +244,7 @@ const Navbar = () => {
                         <Image
                           src="/images/technology.svg"
                           alt="Technology Integration"
-                          className="w-6 h-6 sm:w-6 sm:h-8 mr-3 mb-5"
+                          className="w-6 h-6 sm:w-8 sm:h-8 mr-3"
                           width={100}
                           height={100}
                         />
@@ -245,7 +253,7 @@ const Navbar = () => {
                             Technology Integration
                           </span>
                           <span className="text-xs sm:text-sm text-neutral-400">
-                            Custom technology integrations
+                            Custom tech integrations
                           </span>
                         </div>
                       </Link>
@@ -256,11 +264,11 @@ const Navbar = () => {
                         <Image
                           src="/images/backend.svg"
                           alt="Backend Development"
-                          className="w-6 h-6 sm:w-8 sm:h-8 mr-3 mb-5"
+                          className="w-6 h-6 sm:w-8 sm:h-8 mr-3"
                           width={100}
                           height={100}
                         />
-                        <div className="mb-6">
+                        <div>
                           <span className="block text-white text-sm sm:text-sm font-medium">
                             Backend Development
                           </span>
@@ -276,7 +284,7 @@ const Navbar = () => {
                         <Image
                           src="/images/dashboard.svg"
                           alt="Dashboard & Portal Development"
-                          className="w-6 h-6 sm:w-8 sm:h-8 mr-3 mb-8"
+                          className="w-6 h-6 sm:w-8 sm:h-8 mr-3"
                           width={100}
                           height={100}
                         />
@@ -285,7 +293,7 @@ const Navbar = () => {
                             Dashboard Development
                           </span>
                           <span className="text-xs sm:text-sm text-neutral-400">
-                            Custom dashboard & portal solutions
+                            Custom dashboard solutions
                           </span>
                         </div>
                       </Link>
@@ -294,31 +302,23 @@ const Navbar = () => {
                 </div>
               </div>
 
-              {/* Navigation Links with responsive text sizes */}
-
               <Link
-                href="/Products"
-                className="text-gray-100 flex items-center text-[14px] xl:text-[14px] hover:text-blue-600 relative after:absolute after:bottom-[-15px] after:left-0 after:h-[4px] after:w-0 after:bg-blue-600 after:transition-all after:duration-300 hover:after:w-full">
-                Our Products
-              </Link>
-
-              <Link
-                href="/about/About"
+                href="/About"
                 className="text-gray-100 flex items-center text-[14px] xl:text-[14px] hover:text-blue-600 relative after:absolute after:bottom-[-15px] after:left-0 after:h-[4px] after:w-0 after:bg-blue-600 after:transition-all after:duration-300 hover:after:w-full">
                 About Us
               </Link>
               <Link
-                href="/career/Careers"
+                href="/Careers"
                 className="text-gray-100 flex items-center text-[14px] xl:text-[14px] hover:text-blue-600 relative after:absolute after:bottom-[-15px] after:left-0 after:h-[4px] after:w-0 after:bg-blue-600 after:transition-all after:duration-300 hover:after:w-full">
                 Careers
               </Link>
               <Link
-                href="/insights/Blogs"
+                href="/Blogs"
                 className="text-gray-100 flex items-center text-[14px] xl:text-[14px] hover:text-blue-600 relative after:absolute after:bottom-[-15px] after:left-0 after:h-[4px] after:w-0 after:bg-blue-600 after:transition-all after:duration-300 hover:after:w-full">
                 Insights
               </Link>
               <Link
-                href="/customer/Customers"
+                href="/Customers"
                 className="text-gray-100 flex items-center text-[14px] xl:text-[14px] hover:text-blue-600 relative after:absolute after:bottom-[-15px] after:left-0 after:h-[4px] after:w-0 after:bg-blue-600 after:transition-all after:duration-300 hover:after:w-full">
                 Customers
               </Link>
