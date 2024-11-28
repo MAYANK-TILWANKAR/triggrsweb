@@ -195,23 +195,17 @@ const About = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                 {[
                   { number: "3+", label: "Years of Excellence" },
+                  { number: "125+", label: "Projects Delivered" },
                   { number: "26+", label: "Industry Awards" },
                   { number: "99%", label: "Client Satisfaction" },
-                  { number: "125+", label: "Projects Delivered" },
-                ]
-                  .sort((a, b) => {
-                    const numA = parseInt(a.number);
-                    const numB = parseInt(b.number);
-                    return numA - numB;
-                  })
-                  .map((stat, index) => (
-                    <div key={index} className="text-center">
-                      <div className="text-4xl md:text-3xl font-bold text-indigo-500 mb-2">
-                        {stat.number}
-                      </div>
-                      <div className="text-gray-400">{stat.label}</div>
+                ].map((stat, index) => (
+                  <div key={index} className="text-center">
+                    <div className="text-4xl md:text-3xl font-bold text-indigo-500 mb-2">
+                      {stat.number}
                     </div>
-                  ))}
+                    <div className="text-gray-400">{stat.label}</div>
+                  </div>
+                ))}
               </div>
             </div>
           </section>

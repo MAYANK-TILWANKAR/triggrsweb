@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ["pagedone.io"],
+    domains: ["pagedone.io", "triggrsweb.com"],
   },
   reactStrictMode: true,
 };

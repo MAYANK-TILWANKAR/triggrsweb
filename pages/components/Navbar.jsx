@@ -135,12 +135,12 @@ const Navbar = () => {
 
           {/* Desktop Menu */}
           <div className="hidden lg:flex items-center space-x-4 xl:space-x-6">
-            <div className="flex items-center space-x-4 xl:space-x-6 mr-8 xl:mr-12">
-              <Link
+            <div className="flex items-center space-x-4 xl:space-x-6 mr-8 xl:mr-24">
+              {/* <Link
                 href="/"
                 className="text-gray-100 flex items-center text-[14px] xl:text-[14px] hover:text-blue-600 relative after:absolute after:bottom-[-15px] after:left-0 after:h-[4px] after:w-0 after:bg-blue-600 after:transition-all after:duration-300 hover:after:w-full">
                 Home
-              </Link>
+              </Link> */}
 
               {/* Navigation Links with responsive text sizes */}
 
@@ -179,7 +179,7 @@ const Navbar = () => {
                   <div className="px-4 sm:px-6 lg:px-8 py-4 sm:py-6">
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                       <Link
-                        href="/services/web"
+                        href="/services/web-development"
                         className="flex items-center p-3 hover:bg-gray-50/10 rounded-lg transition-colors group">
                         <Image
                           src="/images/web.svg"
@@ -199,7 +199,7 @@ const Navbar = () => {
                       </Link>
 
                       <Link
-                        href="/services/ecommerce"
+                        href="/services/ecommerce-development"
                         className="flex items-center p-3 hover:bg-gray-50/10 rounded-lg transition-colors group">
                         <Image
                           src="/images/ecommerce.svg"
@@ -219,7 +219,7 @@ const Navbar = () => {
                       </Link>
 
                       <Link
-                        href="/services/api"
+                        href="/services/api-development"
                         className="flex items-center p-3 hover:bg-gray-50/10 rounded-lg transition-colors group">
                         <Image
                           src="/images/api.svg"
@@ -239,7 +239,7 @@ const Navbar = () => {
                       </Link>
 
                       <Link
-                        href="/services/technology"
+                        href="/services/technology-integration"
                         className="flex items-center p-3 hover:bg-gray-50/10 rounded-lg transition-colors group">
                         <Image
                           src="/images/technology.svg"
@@ -259,7 +259,7 @@ const Navbar = () => {
                       </Link>
 
                       <Link
-                        href="/services/backend"
+                        href="/services/backend-development"
                         className="flex items-center p-3 hover:bg-gray-50/10 rounded-lg transition-colors group">
                         <Image
                           src="/images/backend.svg"
@@ -279,7 +279,7 @@ const Navbar = () => {
                       </Link>
 
                       <Link
-                        href="/services/dashboard"
+                        href="/services/dashboard-development"
                         className="flex items-center p-3 hover:bg-gray-50/10 rounded-lg transition-colors group">
                         <Image
                           src="/images/dashboard.svg"
@@ -397,32 +397,32 @@ const Navbar = () => {
                   showMobileServices ? "block" : "hidden"
                 }`}>
                 <Link
-                  href="/web"
+                  href="/services/web-development"
                   className="block py-2 text-gray-100 hover:text-blue-600">
                   Web Development
                 </Link>
                 <Link
-                  href="/ecommerce"
+                  href="/services/ecommerce-development"
                   className="block py-2 text-gray-100 hover:text-blue-600">
                   Ecommerce Development
                 </Link>
                 <Link
-                  href="/cloud"
+                  href="/services/api-development"
                   className="block py-2 text-gray-100 hover:text-blue-600">
                   API Development
                 </Link>
                 <Link
-                  href="/ai"
+                  href="/services/technology-integration"
                   className="block py-2 text-gray-100 hover:text-blue-600">
                   Technology Integration
                 </Link>
                 <Link
-                  href="/devops"
+                  href="/services/backend-development"
                   className="block py-2 text-gray-100 hover:text-blue-600">
                   Backend Development
                 </Link>
                 <Link
-                  href="/dashboard"
+                  href="/services/dashboard-development"
                   className="block py-2 text-gray-100 hover:text-blue-600">
                   Dashboard & Portal Development
                 </Link>
@@ -431,9 +431,9 @@ const Navbar = () => {
 
             {/* Mobile Navigation Links */}
             <Link
-              href="/customer"
+              href="/Products"
               className="block py-2 text-gray-100 hover:text-blue-600">
-              Customers
+              Our Products
             </Link>
             <Link
               href="/About"
@@ -451,7 +451,7 @@ const Navbar = () => {
               Insights
             </Link>
             <Link
-              href="/customer"
+              href="/Customers"
               className="block py-2 text-gray-100 hover:text-blue-600">
               Customers
             </Link>
