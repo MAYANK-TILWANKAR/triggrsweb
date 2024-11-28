@@ -13,7 +13,7 @@ const index = () => {
     <>
       <Navbar />
       <Home2 />
-      <Home />
+      {/* <Home /> */}
       <Marque />
       <Why />
       <Industries />

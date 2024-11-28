@@ -113,7 +113,7 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`bg-[#F8F8FC]/15 backdrop-blur-sm fixed w-full lg:w-[75%] lg:left-1/2 lg:-translate-x-1/2 z-50 transition-all duration-500 ease-in-out lg:rounded-full shadow-lg lg:mt-8 ${
+      className={`sm:bg-[#F8F8FC]/15 bg-black backdrop-blur-sm fixed w-full lg:w-[75%] lg:left-1/2 lg:-translate-x-1/2 z-50 transition-all duration-500 ease-in-out lg:rounded-full shadow-lg lg:mt-8 ${
         visible
           ? "translate-y-0 opacity-100"
           : "lg:-translate-y-full lg:opacity-0"
@@ -135,7 +135,7 @@ const Navbar = () => {
 
           {/* Desktop Menu */}
           <div className="hidden lg:flex items-center space-x-4 xl:space-x-6">
-            <div className="flex items-center space-x-4 xl:space-x-6 mr-8 xl:mr-36">
+            <div className="flex items-center space-x-4 xl:space-x-6 mr-8 xl:mr-12">
               <Link
                 href="/"
                 className="text-gray-100 flex items-center text-[14px] xl:text-[14px] hover:text-blue-600 relative after:absolute after:bottom-[-15px] after:left-0 after:h-[4px] after:w-0 after:bg-blue-600 after:transition-all after:duration-300 hover:after:w-full">
@@ -297,15 +297,21 @@ const Navbar = () => {
               {/* Navigation Links with responsive text sizes */}
 
               <Link
+                href="/Products"
+                className="text-gray-100 flex items-center text-[14px] xl:text-[14px] hover:text-blue-600 relative after:absolute after:bottom-[-15px] after:left-0 after:h-[4px] after:w-0 after:bg-blue-600 after:transition-all after:duration-300 hover:after:w-full">
+                Our Products
+              </Link>
+
+              <Link
                 href="/about/About"
                 className="text-gray-100 flex items-center text-[14px] xl:text-[14px] hover:text-blue-600 relative after:absolute after:bottom-[-15px] after:left-0 after:h-[4px] after:w-0 after:bg-blue-600 after:transition-all after:duration-300 hover:after:w-full">
                 About Us
               </Link>
-              {/* <Link
+              <Link
                 href="/career/Careers"
                 className="text-gray-100 flex items-center text-[14px] xl:text-[14px] hover:text-blue-600 relative after:absolute after:bottom-[-15px] after:left-0 after:h-[4px] after:w-0 after:bg-blue-600 after:transition-all after:duration-300 hover:after:w-full">
                 Careers
-              </Link> */}
+              </Link>
               <Link
                 href="/insights/Blogs"
                 className="text-gray-100 flex items-center text-[14px] xl:text-[14px] hover:text-blue-600 relative after:absolute after:bottom-[-15px] after:left-0 after:h-[4px] after:w-0 after:bg-blue-600 after:transition-all after:duration-300 hover:after:w-full">
@@ -319,7 +325,7 @@ const Navbar = () => {
             </div>
             <div className="hidden lg:flex items-center ">
               <Link
-                href="/contact/Contact"
+                href="/Contact"
                 className="bg-blue-600 text-white text-[14px] xl:text-[14px] rounded-full px-3 py-1.5 sm:px-4 sm:py-2 hover:bg-blue-700">
                 Contact Us
               </Link>
@@ -333,7 +339,7 @@ const Navbar = () => {
               onClick={() => setIsOpen(!isOpen)}
               aria-label="Toggle menu">
               <svg
-                className={`w-6 h-6 transition-transform duration-300 ${
+                className={`w-6 text-white h-6 transition-transform duration-300 ${
                   isOpen ? "rotate-180" : ""
                 }`}
                 fill="none"
@@ -362,7 +368,7 @@ const Navbar = () => {
         {/* Mobile Menu */}
         <div
           ref={mobileMenuRef}
-          className="lg:hidden fixed w-[300px] left-0 top-[64px] bg-neutral-800 z-50 overflow-y-auto h-[calc(100vh-64px)]"
+          className="lg:hidden fixed w-full left-0 top-[64px] bg-neutral-800 z-50 overflow-y-auto h-[calc(100vh-64px)]"
           style={{ opacity: 0, transform: "translateX(-100%)" }}>
           <div className="px-4 pt-2 pb-3 space-y-2">
             {/* Services Dropdown in Mobile */}

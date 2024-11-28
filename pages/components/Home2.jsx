@@ -1,45 +1,27 @@
 "use client";
 import WorldMap from "./ui/world-map";
 import { motion } from "motion/react";
+import { FlipWords } from "./ui/flip-words";
 
 export default function Home2() {
+  const words = [
+    "Launch SaaS platforms that redefine industries.",
+    "Transform your vision into reality with MVP product development.",
+    "Elevate your brand with cutting-edge e-commerce solutions.",
+  ];
+
   return (
-    <div className="pt-36 w-full bg-black">
-      <div className="max-w-7xl mx-auto text-center">
-        <p className="font-semibold text-xl md:text-5xl text-white ">
-          Welcome to{" "}
-          <span className="text-blue-800 mx-2">
-            {"Triggrsweb".split("").map((word, idx) => (
-              <motion.span
-                key={idx}
-                className="inline-block"
-                initial={{ x: -10, opacity: 0 }}
-                animate={{ x: 0, opacity: 1 }}
-                transition={{ duration: 0.5, delay: idx * 0.04 }}>
-                {word}
-              </motion.span>
-            ))}
-          </span>
-          <span className="text-neutral-400 ">
-            {"Solutions".split("").map((word, idx) => (
-              <motion.span
-                key={idx}
-                className="inline-block"
-                initial={{ x: -10, opacity: 0 }}
-                animate={{ x: 0, opacity: 1 }}
-                transition={{ duration: 0.5, delay: idx * 0.04 }}>
-                {word}
-              </motion.span>
-            ))}
-          </span>
-        </p>
-        <p className="text-sm md:text-sm text-neutral-500 max-w-2xl mx-auto py-4">
-          We are a team of passionate developers, designers, and entrepreneurs
-          who are dedicated to building innovative and user-friendly
-          applications. Our goal is to create products that are not only
-          functional but also beautiful and easy to use.
-        </p>
+    <div className="pt-36 w-full bg-black overflow-hidden">
+      <div className="mt-10 max-w-7xl mx-auto relative z-10 w-full mb-20">
+        <h1 className="text-4xl md:text-5xl font-bold text-center bg-clip-text">
+          <FlipWords
+            words={words}
+            duration={4000}
+            className="font-semibold text-neutral-400 text-center leading-tight"
+          />
+        </h1>
       </div>
+
       <WorldMap
         dots={[
           {
