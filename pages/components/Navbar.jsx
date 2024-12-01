@@ -177,10 +177,10 @@ const Navbar = () => {
                   style={{ display: "none" }}
                   className="absolute  left-[100%] transform -translate-x-1/2 mt-6 bg-neutral-800 backdrop-blur-sm rounded-xl shadow-lg z-50 w-[90vw] sm:w-[85vw] lg:w-[80vw] max-w-4xl">
                   <div className="px-4 sm:px-6 lg:px-8 py-4 sm:py-6">
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3  py-3">
                       <Link
                         href="/services/web-development"
-                        className="flex items-center p-3 hover:bg-gray-50/10 rounded-lg transition-colors group">
+                        className="flex items-center px-3 py-8  hover:bg-gray-50/10 rounded-lg transition-colors group">
                         <Image
                           src="/images/web.svg"
                           alt="Web Design & Development"
@@ -200,7 +200,7 @@ const Navbar = () => {
 
                       <Link
                         href="/services/ecommerce-development"
-                        className="flex items-center p-3 hover:bg-gray-50/10 rounded-lg transition-colors group">
+                        className="flex items-center px-3 py-8  hover:bg-gray-50/10 rounded-lg transition-colors group">
                         <Image
                           src="/images/ecommerce.svg"
                           alt="Ecommerce Development"
@@ -220,7 +220,7 @@ const Navbar = () => {
 
                       <Link
                         href="/services/api-development"
-                        className="flex items-center p-3 hover:bg-gray-50/10 rounded-lg transition-colors group">
+                        className="flex items-center px-3 py-8  hover:bg-gray-50/10 rounded-lg transition-colors group">
                         <Image
                           src="/images/api.svg"
                           alt="API Development"
@@ -240,7 +240,7 @@ const Navbar = () => {
 
                       <Link
                         href="/services/technology-integration"
-                        className="flex items-center p-3 hover:bg-gray-50/10 rounded-lg transition-colors group">
+                        className="flex items-center px-3 py-8  hover:bg-gray-50/10 rounded-lg transition-colors group">
                         <Image
                           src="/images/technology.svg"
                           alt="Technology Integration"
@@ -260,7 +260,7 @@ const Navbar = () => {
 
                       <Link
                         href="/services/backend-development"
-                        className="flex items-center p-3 hover:bg-gray-50/10 rounded-lg transition-colors group">
+                        className="flex items-center px-3 py-8  hover:bg-gray-50/10 rounded-lg transition-colors group">
                         <Image
                           src="/images/backend.svg"
                           alt="Backend Development"
@@ -280,7 +280,7 @@ const Navbar = () => {
 
                       <Link
                         href="/services/dashboard-development"
-                        className="flex items-center p-3 hover:bg-gray-50/10 rounded-lg transition-colors group">
+                        className="flex items-center px-3 py-8  hover:bg-gray-50/10 rounded-lg transition-colors group">
                         <Image
                           src="/images/dashboard.svg"
                           alt="Dashboard & Portal Development"

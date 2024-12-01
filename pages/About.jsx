@@ -21,13 +21,23 @@ const About = () => {
       antialias: true,
     });
 
-    renderer.setSize(window.innerWidth, window.innerHeight);
+    // Set initial size
+    const updateSize = () => {
+      renderer.setSize(window.innerWidth, window.innerHeight);
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+    };
+
+    updateSize();
 
     // Create grid of points
     const geometry = new THREE.BufferGeometry();
     const points = [];
 
-    for (let i = 0; i < 1000; i++) {
+    // Adjust number of points based on screen size
+    const pointCount = window.innerWidth < 768 ? 500 : 1000;
+
+    for (let i = 0; i < pointCount; i++) {
       const x = THREE.MathUtils.randFloatSpread(100);
       const y = THREE.MathUtils.randFloatSpread(100);
       const z = THREE.MathUtils.randFloatSpread(100);
@@ -41,7 +51,7 @@ const About = () => {
 
     const material = new THREE.PointsMaterial({
       color: "blue",
-      size: 0.2,
+      size: window.innerWidth < 768 ? 0.3 : 0.2,
       transparent: true,
       opacity: 0.6,
     });
@@ -49,13 +59,13 @@ const About = () => {
     const pointCloud = new THREE.Points(geometry, material);
     scene.add(pointCloud);
 
-    camera.position.z = 50;
+    camera.position.z = window.innerWidth < 768 ? 30 : 50;
 
     // Animation
     const animate = () => {
       requestAnimationFrame(animate);
-      pointCloud.rotation.x += 0.001;
-      pointCloud.rotation.y += 0.001;
+      pointCloud.rotation.x += window.innerWidth < 768 ? 0.002 : 0.001;
+      pointCloud.rotation.y += window.innerWidth < 768 ? 0.002 : 0.001;
       renderer.render(scene, camera);
     };
 
@@ -63,9 +73,11 @@ const About = () => {
 
     // Handle resize
     const handleResize = () => {
-      camera.aspect = window.innerWidth / window.innerHeight;
-      camera.updateProjectionMatrix();
-      renderer.setSize(window.innerWidth, window.innerHeight);
+      updateSize();
+      camera.position.z = window.innerWidth < 768 ? 30 : 50;
+      material.size = window.innerWidth < 768 ? 0.3 : 0.2;
+      pointCloud.rotation.x = window.innerWidth < 768 ? 0.002 : 0.001;
+      pointCloud.rotation.y = window.innerWidth < 768 ? 0.002 : 0.001;
     };
 
     window.addEventListener("resize", handleResize);
@@ -78,31 +90,80 @@ const About = () => {
       renderer.dispose();
     };
   }, []);
+
   return (
     <>
       <Head>
         <title>About TriggrsWeb</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>
-      <div className="bg-[#171717]">
+      <div className="bg-[#171717] min-h-screen">
         <Navbar />
-        <section className="relative h-[40vh] md:h-[60vh] bg-[#171717] flex items-center overflow-hidden">
-          <canvas ref={canvasRef} className="absolute inset-0 bg-black" />
-          <div className="relative z-20 text-left px-4 md:px-6 max-w-7xl mx-auto w-full mt-20">
-            <h1 className="text-3xl md:text-5xl lg:text-5xl font-bold text-white mb-4">
-              About TriggrsWeb
+        <section className="relative h-[50vh] md:h-[80vh] bg-[#171717] flex items-center overflow-hidden">
+          <canvas
+            ref={canvasRef}
+            className="absolute inset-0 bg-black touch-none"
+          />
+          <div className="relative z-20 text-left px-4 md:px-6 max-w-7xl mx-auto w-full mt-16 md:mt-20">
+            <h1 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-4">
+              About <span className="text-blue-600">TriggrsWeb</span>
             </h1>
-            <p className="text-lg md:text-base text-white/90 max-w-2xl">
+            <p className="text-base sm:text-lg md:text-base text-white/90 max-w-2xl">
               Crafting digital excellence through innovation and dedication
             </p>
           </div>
         </section>
+
+        {/* New About Company Section */}
+        <section className="bg-[#171717] py-12 md:py-44">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex flex-col sm:flex-row items-center justify-between gap-8 lg:gap-20">
+              <div className="w-full sm:w-1/2">
+                <div className="relative">
+                  <div className="absolute -inset-4"></div>
+                  <div className="relative">
+                    <Image
+                      src="https://i.imgur.com/WbQnbas.png"
+                      alt="About TriggrsWeb"
+                      width={600}
+                      height={500}
+                      className="w-full h-auto"
+                      priority
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <div className="w-full sm:w-1/2">
+                <div className="space-y-4 md:space-y-6">
+                  <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white">
+                    About{" "}
+                    <span className="text-blue-600">TriggrsWeb Solutions</span>
+                  </h2>
+                  <p className="text-base md:text-lg text-gray-300 leading-relaxed">
+                    TriggrsWeb is a forward-thinking web development company
+                    specializing in creating cutting-edge websites and web
+                    applications. Our team of passionate developers combines
+                    technical expertise with creative innovation to deliver
+                    digital solutions that drive business success.
+                  </p>
+                  <p className="text-base md:text-lg text-gray-300 leading-relaxed">
+                    We take pride in transforming complex challenges into
+                    elegant, user-friendly solutions that help businesses thrive
+                    in the digital landscape.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
         <section className="">
-          <section className="relative block px-4 md:px-6 py-10 md:py-28 bg-[#171717] min-h-screen">
+          <section className="relative block px-4 md:px-6 bg-[#171717] min-h-screen -mt-10 ">
             <div className="relative mx-auto max-w-5xl text-center">
               <span className="text-white my-2 md:my-3 flex items-center justify-center font-medium uppercase tracking-wider text-sm md:text-base">
                 Why choose us
               </span>
-              <h2 className="block w-full text-white font-bold text-2xl md:text-3xl lg:text-4xl px-2">
+              <h2 className="block w-full text-white font-bold text-xl sm:text-2xl md:text-3xl lg:text-4xl px-2 mb-4">
                 Transform Your Digital Presence with TriggrsWeb
               </h2>
               <p className="mx-auto my-3 md:my-4 w-full max-w-xl text-center font-medium leading-relaxed tracking-wide text-white text-sm md:text-base px-2">
@@ -112,9 +173,9 @@ const About = () => {
               </p>
             </div>
 
-            <div className="relative mx-auto max-w-7xl z-10 grid grid-cols-1 gap-6 md:gap-10 pt-8 sm:grid-cols-2 lg:grid-cols-3 px-4">
+            <div className="relative mx-auto max-w-6xl z-10 grid grid-cols-1 gap-6 md:gap-10 pt-8 sm:grid-cols-2 lg:grid-cols-3 px-4">
               <div className="rounded-3xl border border-white p-4 md:p-8 text-center shadow">
-                <div className=" mx-auto flex h-10 w-10 md:h-16 md:w-16 items-center justify-center ">
+                <div className="mx-auto flex h-10 w-10 md:h-16 md:w-16 items-center justify-center">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     xmlSpace="preserve"
@@ -142,7 +203,7 @@ const About = () => {
               </div>
 
               <div className="rounded-3xl border border-white p-4 md:p-8 text-center shadow">
-                <div className=" mx-auto flex h-10 w-10 md:h-12 md:w-12 items-center justify-center ">
+                <div className="mx-auto flex h-10 w-10 md:h-12 md:w-12 items-center justify-center">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     xmlSpace="preserve"
@@ -153,7 +214,7 @@ const About = () => {
                     viewBox="0 0 122.88 118.29"
                     fill="white"
                     className="w-5 h-5 md:w-16 md:h-16">
-                    <path d="M12.53 19.37v86.39h108.46v12.53H6.27c-3.46 0-6.27-2.81-6.27-6.27V19.37zm28.13-1.6-1.04 8.14a4.59 4.59 0 0 1-5.12 3.97 4.59 4.59 0 0 1-3.97-5.12l2.65-20.62A4.576 4.576 0 0 1 39.39.3l19.86 7.65c2.36.91 3.53 3.56 2.62 5.92a4.576 4.576 0 0 1-5.92 2.62l-6.78-2.61c7.43 10.08 16.33 18.5 25.94 25.06 13.84 9.45 29.1 15 43.51 16.04 2.53.18 4.43 2.37 4.25 4.9a4.58 4.58 0 0 1-4.9 4.25C101.98 63 85.12 56.9 69.94 46.53 59.02 39.08 48.95 29.4 40.66 17.77m74.84 67.89V96.9h-14.21V85.66zM90.1 73.83V96.9H75.9V73.83zm-25.39-8.14V96.9h-14.2V65.69zm-25.39-12.4V96.9H25.11V53.29z"></path>
+                    <path d="M45.34 6.14a4 4 0 0 0 3.23 7.24 68 68 0 0 1 7.19-3.1c4.54-1.51 3-8.5-2-7.67a44.8 44.8 0 0 0-8.4 3.53Zm7.34 52.75v-6.21L62 43.16a19 19 0 0 0 1.49-1.65 7.7 7.7 0 0 0 1-1.49 3.46 3.46 0 0 0 .34-1.5 2.67 2.67 0 0 0-.32-1.39 1.8 1.8 0 0 0-1-.78 5.1 5.1 0 0 0-1.71-.24h-8.64V29.9c1.32-.3 2.79-.57 4.42-.83a37.5 37.5 0 0 1 5.66-.38 13.1 13.1 0 0 1 5.58 1 5.76 5.76 0 0 1 2.91 2.86 11.1 11.1 0 0 1 .86 4.63 11.5 11.5 0 0 1-.52 3.59 11.3 11.3 0 0 1-1.51 3 21.5 21.5 0 0 1-2.4 2.82L63 51.87h10.4v7Zm36 0v-5.53H76.24l-1.37-3.43 8.67-21h8l-7.35 17.82h4.51v-4.44l1.49-3.87h6.33v8.31h2.42v5.4l-2.42 1.21v5.53Zm-58.77-4.32a90.2 90.2 0 0 0 13.32 18.67 76 76 0 0 0 21.12 15.58 2.13 2.13 0 0 0 1.82.09 7.8 7.8 0 0 0 2.54-1.85A28 28 0 0 0 71 84.22c3.39-4.46 7.59-10 13.52-7.23l.36.19 19.77 11.37.2.13a8.94 8.94 0 0 1 3.71 7.7 20.84 20.84 0 0 1-2.89 9.8 20.15 20.15 0 0 1-9.52 8.41 43.5 43.5 0 0 1-11.73 3.19 39.7 39.7 0 0 1-17.92-1.5 79 79 0 0 1-18-8.7l-.45-.29c-2.94-1.82-6.1-3.78-9.19-6.09-11.38-8.57-22.94-21-30.47-34.57C2.08 55.19-1.37 42.84.52 31.08c1-6.45 3.81-12.32 8.63-16.2 4.2-3.39 9.87-5.24 17.21-4.59a2.46 2.46 0 0 1 2 1.27L41 33a6.7 6.7 0 0 1 1.07 7.17 14.1 14.1 0 0 1-4.85 5.44c-.69.59-1.5 1.17-2.35 1.79-2.83 2.05-6.06 4.43-4.95 7.24v-.07Zm78.77 21.65a4 4 0 0 0 6.32 4.72 4.5 4.5 0 0 0 .52-.7 45.3 45.3 0 0 0 3.56-7.95 4 4 0 0 0-7.1-3.46 4.3 4.3 0 0 0-.4.84 38.3 38.3 0 0 1-2.91 6.55Zm6.15-21.07a4 4 0 0 0 7.77 1.49 4.2 4.2 0 0 0 .15-.79 50.6 50.6 0 0 0-.12-8.7 4 4 0 0 0-7.81-.58 4.4 4.4 0 0 0-.1 1.41 41 41 0 0 1 .11 7.17m-3.92-21.22a4 4 0 0 0 7.24-3.28 51 51 0 0 0-4.21-7.51 4 4 0 1 0-6.58 4.46 43.6 43.6 0 0 1 3.55 6.33M97.36 17.07c4.17 3.05 9-3 4.78-6.35a54 54 0 0 0-7.27-4.59c-4.08-2.13-8.05 3.44-4.38 6.58a4 4 0 0 0 .71.47 45.3 45.3 0 0 1 6.16 3.89m-20-8.52A4 4 0 0 0 79.7 1a4 4 0 0 0-1-.31A57 57 0 0 0 70.11 0a4 4 0 1 0 0 8 49 49 0 0 1 7.27.6Z"></path>
                   </svg>
                 </div>
                 <h3 className="mt-4 md:mt-6 text-white text-lg md:text-xl">
@@ -167,7 +228,7 @@ const About = () => {
               </div>
 
               <div className="rounded-3xl border border-white p-4 md:p-8 text-center shadow">
-                <div className=" mx-auto flex h-10 w-10 md:h-12 md:w-12 items-center justify-center">
+                <div className="mx-auto flex h-10 w-10 md:h-12 md:w-12 items-center justify-center">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     id="Layer_1"
@@ -210,83 +271,7 @@ const About = () => {
             </div>
           </section>
 
-          <section className="py-12 md:py-24 relative bg-[#171717] px-4 md:px-5 lg:px-5">
-            <div className="w-full max-w-7xl mx-auto">
-              <div className="w-full justify-start items-center xl:gap-12 gap-8 md:gap-10 grid lg:grid-cols-2 grid-cols-1">
-                <div className="w-full flex-col justify-center lg:items-start items-center gap-8 md:gap-10 inline-flex">
-                  <div className="w-full flex-col justify-center items-start gap-6 md:gap-8 flex">
-                    <div className="flex-col justify-start lg:items-start items-center gap-3 md:gap-4 flex">
-                      <h6 className="text-white text-sm md:text-base font-normal leading-relaxed">
-                        About Us
-                      </h6>
-                      <div className="w-full flex-col justify-start lg:items-start items-center gap-2 md:gap-3 flex">
-                        <h2 className="text-white text-2xl md:text-3xl lg:text-4xl font-bold font-manrope leading-normal lg:text-start text-center">
-                          The Tale of Our Achievement Story
-                        </h2>
-                        <p className="text-white text-sm md:text-base font-normal leading-relaxed lg:text-start text-center">
-                          Our achievement story is a testament to teamwork and
-                          perseverance. Together, we&apos;ve overcome
-                          challenges, celebrated victories, and created a
-                          narrative of progress and success.
-                        </p>
-                      </div>
-                    </div>
-                    <div className="w-full flex-col justify-center items-start gap-4 md:gap-6 flex">
-                      <div className="w-full justify-start items-center gap-4 md:gap-8 grid md:grid-cols-2 grid-cols-1">
-                        <div className="w-full h-full p-3 md:p-3.5 rounded-xl border border-white hover:border-gray-400 transition-all duration-700 ease-in-out flex-col justify-start items-start gap-2 md:gap-2.5 inline-flex">
-                          <h4 className="text-white text-xl md:text-2xl font-bold font-manrope leading-9">
-                            3+ Years
-                          </h4>
-                          <p className="text-white text-sm md:text-base font-normal leading-relaxed">
-                            Influencing Digital Landscapes Together
-                          </p>
-                        </div>
-                        <div className="w-full h-full p-3 md:p-3.5 rounded-xl border border-white hover:border-gray-400 transition-all duration-700 ease-in-out flex-col justify-start items-start gap-2 md:gap-2.5 inline-flex">
-                          <h4 className="text-white text-xl md:text-2xl font-bold font-manrope leading-9">
-                            125+ Projects
-                          </h4>
-                          <p className="text-white text-sm md:text-base font-normal leading-relaxed">
-                            Excellence Achieved Through Success
-                          </p>
-                        </div>
-                      </div>
-                      <div className="w-full h-full justify-start items-center gap-4 md:gap-8 grid md:grid-cols-2 grid-cols-1">
-                        <div className="w-full p-3 md:p-3.5 rounded-xl border border-white hover:border-gray-400 transition-all duration-700 ease-in-out flex-col justify-start items-start gap-2 md:gap-2.5 inline-flex">
-                          <h4 className="text-white text-xl md:text-2xl font-bold font-manrope leading-9">
-                            26+ Awards
-                          </h4>
-                          <p className="text-white text-sm md:text-base font-normal leading-relaxed">
-                            Our Dedication to Innovation Wins Understanding
-                          </p>
-                        </div>
-                        <div className="w-full h-full p-3 md:p-3.5 rounded-xl border border-white hover:border-gray-400 transition-all duration-700 ease-in-out flex-col justify-start items-start gap-2 md:gap-2.5 inline-flex">
-                          <h4 className="text-white text-xl md:text-2xl font-bold font-manrope leading-9">
-                            99% Happy Clients
-                          </h4>
-                          <p className="text-white text-sm md:text-base font-normal leading-relaxed">
-                            Mirrors our Focus on Client Satisfaction.
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="w-full lg:justify-start justify-center items-start flex">
-                  <div className="w-full sm:w-[564px] h-[400px] sm:h-[646px] bg-[#171717] rounded-3xl border relative">
-                    <Image
-                      className="sm:mt-5 sm:ml-5 w-full h-full rounded-3xl object-cover"
-                      src="https://pagedone.io/asset/uploads/1717742431.png"
-                      alt="about Us image"
-                      width={100}
-                      height={100}
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          <section className="bg-[#171717] py-16 md:py-16 mt-5">
+          <section className="bg-[#171717] py-16 md:py-24 mt-5">
             <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 bg-[#171717]">
               <div className="text-center mb-12">
                 <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-4">
